@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/icon-font.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <title>Music Battle</title>
+  </head>
+  <body>
+    <header class="header">
+      <h2 class="header__title">Рулетка</h2>
+
+      <p class="header__description">
+        Вы можете поучаствовать в рулетке с призами, при наличии 30 или более
+        очков активностей
+      </p>
+      <p class="header__description">Ваших активностей: 32</p>
+    </header>
+
+    <section class="roulette">
+      <div class="roulette__container">
+        <template class="roulette__item">
+          <div>
+            <i class="fa"></i>
+            <span></span>
+          </div>
+        </template>
+      </div>
+      <div class="roulette__arrow"></div>
+      <button class="roulette__button" onClick="spin()">Крутить</button>
+      <div class="roulette__txt"></div>
+    </section>
+
+    <nav class="navigation">
+      <a href="./index.html" class="navigation__item">
+        <img src="./img/swords.png" alt="" />
+      </a>
+
+      <a href="./tournament.html" class="navigation__item">
+        <img src="./img/tournament.png" alt="" />
+      </a>
+
+      <a href="./favourite.html" class="navigation__item">
+        <img src="./img/favourite.png" alt="" />
+      </a>
+
+      <a href="./rating.html" class="navigation__item">
+        <img src="./img/rating.png" alt="" />
+      </a>
+
+      <a href="./roulette.html" class="navigation__item">
+        <img src="./img/roulette.png" alt="" />
+      </a>
+    </nav>
+
+    <script>
+      var sounds = {
+        spin: new Audio(
+          'https://cdn.rawgit.com/ManzDev/cursos-assets/gh-pages/js/spin.mp3'
+        ),
+        win: new Audio(
+          'https://cdn.rawgit.com/ManzDev/cursos-assets/gh-pages/js/win.mp3'
+        ),
+      };
+
+      const roulette = document.querySelector('.roulette__container');
+      const arrow = document.querySelector('.roulette__arrow');
+      const txt = document.querySelector('.roulette__txt');
+      const item = document.querySelector('.roulette__item');
+
+      const items = [
+        ['fa-twitter', 'iPhone 13', ''],
+        ['fa-refresh', 'Голоса для игры', ''],
+        ['fa-battery-4', 'Встреча с артистом', ''],
+        ['fa-bomb', 'Что-то интересное', ''],
+        ['fa-comment', 'Что-то неинтересное', ''],
+        ['fa-heart', 'Красивая, а внутри кобра', ''],
+      ];
+
+      let offset = 0;
+      let maxOffset = items.length * 200;
+
+      const wheel = {
+        speed: 100,
+
+        getSpeed: function () {
+          this.speed = this.speed - Math.round(Math.random() * 1);
+          if (this.speed < 0) return 0;
+          return this.speed;
+        },
+        resetSpeed: function () {
+          this.speed = 100;
+        },
+      };
+
+      items.forEach(function (e) {
+        let newItem = item.content.cloneNode(true);
+        newItem.querySelector('i').classList.add(e[0]);
+        newItem.querySelector('span').textContent = e[1];
+        roulette.appendChild(newItem);
+      });
+
+      function spin() {
+        sounds.spin.play();
+        arrow.classList.remove('shine');
+
+        console.log('max: ', maxOffset);
+
+        timer = setInterval(function () {
+          offset = offset + wheel.getSpeed();
+          if (offset > maxOffset || offset < 0) offset = 0;
+          roulette.style.transform = 'translateX(-' + offset + 'px)';
+        }, 10);
+
+        setTimeout(function () {
+          clearInterval(timer);
+          wheel.resetSpeed();
+          sounds.spin.pause();
+          sounds.spin.currentTime = 0;
+          sounds.win.play();
+          arrow.classList.add('shine');
+          /*
+        var selected = Math.floor( (150 + offset) / (maxOffset / items.length) );
+        txt.textContent = items[selected][1];
+        */
+        }, 2500);
+      }
+    </script>
+  </body>
+</html>

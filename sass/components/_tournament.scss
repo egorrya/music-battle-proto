@@ -1,0 +1,58 @@
+.tournament {
+  display: flex;
+  flex-direction: row;
+
+  padding: 2rem 2rem 8rem;
+  .round {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    list-style: none;
+    padding: 0;
+  }
+  .round .spacer {
+    flex-grow: 1;
+  }
+  .round .spacer:first-child,
+  .round .spacer:last-child {
+    flex-grow: 0.5;
+  }
+
+  .round .game-spacer {
+    flex-grow: 1;
+  }
+
+  li.game {
+    padding-left: 20px;
+  }
+
+  li.game.winner {
+    font-weight: bold;
+  }
+
+  li.game-top {
+    border-bottom: 1px solid #aaa;
+  }
+
+  li.game-spacer {
+    border-right: 1px solid #aaa;
+    height: 40px;
+
+    a {
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: 7.5px;
+      padding: 5px 13px;
+
+      background: #222;
+      color: #fff;
+      border-radius: 20px;
+      font-size: 1rem;
+    }
+  }
+
+  li.game-bottom {
+    border-top: 1px solid #aaa;
+  }
+}

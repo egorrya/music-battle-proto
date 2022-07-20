@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+
+@import 'base/animations';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utils';
+
+@import 'components/button';
+@import 'components/form';
+@import 'components/card';
+@import 'components/tabs';
+@import 'components/popup';
+@import 'components/responsive-table';
+@import 'components/tournament';
+@import 'components/media-controls';
+
+@import 'layout/grids';
+@import 'layout/header';
+@import 'layout/navigation';
+
+@import 'pages/roulette';
+@import 'pages/battles';

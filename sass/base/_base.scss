@@ -1,0 +1,53 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+
+  @include respond(big-desk) {
+    font-size: 75%;
+  }
+
+  position: relative;
+
+  &::after {
+    @include respond(tab-port) {
+      font-family: 'Montserrat', sans-serif;
+      position: absolute;
+      color: #222;
+
+      font-size: 2rem;
+      text-align: center;
+
+      top: 50vh;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      content: 'Для просмотра прототипа откройте мобильное устройство';
+    }
+  }
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+
+  box-sizing: border-box;
+  padding: 0rem;
+
+  @include respond(tab-port) {
+    display: none;
+  }
+}
