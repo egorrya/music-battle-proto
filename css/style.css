@@ -34,7 +34,7 @@ html {
 body {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
-  padding: 0rem; }
+  padding: 10rem 0 0; }
   @media only screen and (min-width: 37.5em) {
     body {
       display: none; } }
@@ -462,13 +462,15 @@ audio {
     width: calc(3 * (100% - 3 * 6rem) / 4 + 6rem * 2); }
 
 .profile {
+  background: white;
+  position: fixed;
+  top: 0;
   padding: 1.5rem 5rem 1.5rem 2rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 0 0 25px 25px;
   display: flex;
   align-items: center;
-  width: 100%;
-  position: relative; }
+  width: 100%; }
   .profile__img {
     position: relative;
     overflow: hidden;
@@ -609,3 +611,45 @@ audio {
 
 .battles {
   padding: 2rem; }
+
+.top {
+  padding: 3rem 2rem; }
+  .top h2 {
+    font-weight: 400;
+    font-size: 2.2rem; }
+  .top h3 {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    max-width: 75%;
+    opacity: 0.8; }
+  .top__vertical {
+    display: flex;
+    overflow-x: scroll;
+    padding: 2rem 2rem 2rem 1rem; }
+  .top__item {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 12px;
+    padding: 1rem;
+    border-radius: 15px;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .top__item-icon {
+      width: 3rem; }
+    .top__item-image {
+      position: relative;
+      overflow: hidden;
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; }
+      .top__item-image img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: auto; }
+    .top__item-name {
+      margin-top: 1rem;
+      text-align: center; }
