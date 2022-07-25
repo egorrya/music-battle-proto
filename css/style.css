@@ -165,8 +165,7 @@ p {
   background: #222;
   width: var(--card-width);
   height: var(--card-height);
-  aspect-ratio: 16 / 8;
-  padding: 1rem;
+  padding: 0.5rem;
   position: relative;
   border-radius: 15px;
   flex-direction: column;
@@ -181,33 +180,6 @@ p {
   .card--big::before {
     height: 103% !important;
     top: -1.5% !important; }
-  .card::before {
-    content: '';
-    width: 104%;
-    height: 106%;
-    border-radius: 20px;
-    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
-    position: absolute;
-    z-index: -1;
-    top: -3%;
-    left: -2%;
-    animation: spin 2.5s linear infinite; }
-  .card::after {
-    position: absolute;
-    content: '';
-    top: calc(var(--card-height) / 6);
-    left: 0;
-    right: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    transform: scale(0.8);
-    filter: blur(calc(var(--card-height) / 6));
-    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
-    opacity: 1;
-    transition: opacity 0.5s;
-    animation: spin 2.5s linear infinite; }
   .card__competitor {
     display: flex; }
     .card__competitor img {
@@ -273,6 +245,17 @@ p {
   .card__comment {
     position: absolute;
     bottom: -6rem; }
+  .card__half {
+    padding: 0.75rem;
+    background: linear-gradient(to right, #627d4d 0%, #1f3b08 100%);
+    border-radius: 12px;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .card__half--not-active {
+      transform: scale(0.8) translateY(-14%);
+      background: linear-gradient(to right, #a90329 0%, #8f0222 44%, #6d0019 100%); }
 
 @keyframes spin {
   0% {
