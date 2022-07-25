@@ -27,29 +27,19 @@
   color: #fff;
   cursor: pointer;
 
-  margin-bottom: 3rem;
-
-  &:hover {
-    // color: rgb(88, 199, 250);
-    // transition: color 1s;
-  }
-  &:hover:before,
-  &:hover:after {
-    // animation: none;
-    // opacity: 0;
-  }
+  margin-bottom: 9rem;
 
   &--big {
     &::before {
-      height: 104% !important;
-      top: -2% !important;
+      height: 103% !important;
+      top: -1.5% !important;
     }
   }
 
   &::before {
     content: '';
     width: 104%;
-    height: 108%;
+    height: 106%;
     border-radius: 20px;
     background-image: linear-gradient(
       var(--rotate),
@@ -59,7 +49,7 @@
     );
     position: absolute;
     z-index: -1;
-    top: -4%;
+    top: -3%;
     left: -2%;
     animation: spin 2.5s linear infinite;
   }
@@ -95,7 +85,7 @@
     display: flex;
 
     img {
-      max-width: 5rem;
+      max-width: 8rem;
       border-radius: 7.5px;
     }
 
@@ -110,10 +100,10 @@
       flex-basis: 5%;
     }
     .col-2 {
-      flex-basis: 15%;
+      flex-basis: 25%;
     }
     .col-3 {
-      flex-basis: 60%;
+      flex-basis: 50%;
       display: flex;
       flex-direction: column;
       align-items: start;
@@ -156,6 +146,37 @@
       border-radius: 10px;
       font-size: 0.9rem;
     }
+  }
+
+  .disabled {
+    opacity: 0.2;
+  }
+
+  &__audio {
+    position: relative;
+    // margin-right: 10%;
+    width: 100%;
+
+    audio {
+      display: flex;
+      margin-left: 0;
+      width: 90%;
+    }
+
+    &:after {
+      position: absolute;
+      content: '+';
+      top: 50%;
+      right: 0.5rem;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 3rem;
+    }
+  }
+
+  &__comment {
+    position: absolute;
+    bottom: -6rem;
   }
 }
 

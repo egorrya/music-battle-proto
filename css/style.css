@@ -177,19 +177,19 @@ p {
   font-size: 1.1rem;
   color: #fff;
   cursor: pointer;
-  margin-bottom: 3rem; }
+  margin-bottom: 9rem; }
   .card--big::before {
-    height: 104% !important;
-    top: -2% !important; }
+    height: 103% !important;
+    top: -1.5% !important; }
   .card::before {
     content: '';
     width: 104%;
-    height: 108%;
+    height: 106%;
     border-radius: 20px;
     background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
     position: absolute;
     z-index: -1;
-    top: -4%;
+    top: -3%;
     left: -2%;
     animation: spin 2.5s linear infinite; }
   .card::after {
@@ -211,7 +211,7 @@ p {
   .card__competitor {
     display: flex; }
     .card__competitor img {
-      max-width: 5rem;
+      max-width: 8rem;
       border-radius: 7.5px; }
     .card__competitor .col-1,
     .card__competitor .col-2,
@@ -221,9 +221,9 @@ p {
     .card__competitor .col-1 {
       flex-basis: 5%; }
     .card__competitor .col-2 {
-      flex-basis: 15%; }
+      flex-basis: 25%; }
     .card__competitor .col-3 {
-      flex-basis: 60%;
+      flex-basis: 50%;
       display: flex;
       flex-direction: column;
       align-items: start;
@@ -253,6 +253,26 @@ p {
       background: #f0f3f4;
       border-radius: 10px;
       font-size: 0.9rem; }
+  .card .disabled {
+    opacity: 0.2; }
+  .card__audio {
+    position: relative;
+    width: 100%; }
+    .card__audio audio {
+      display: flex;
+      margin-left: 0;
+      width: 90%; }
+    .card__audio:after {
+      position: absolute;
+      content: '+';
+      top: 50%;
+      right: 0.5rem;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 3rem; }
+  .card__comment {
+    position: absolute;
+    bottom: -6rem; }
 
 @keyframes spin {
   0% {
@@ -465,6 +485,7 @@ audio {
   background: white;
   position: fixed;
   top: 0;
+  z-index: 6666;
   padding: 1.5rem 5rem 1.5rem 2rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 0 0 25px 25px;
